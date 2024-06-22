@@ -6,7 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 
 const Signup = () => {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
-  const GoogleAuth = process.env.GOOGLE_LOGIN_URL;
+  const GoogleAuth = process.env.NEXT_PUBLIC_GOOGLE_LOGIN_URL;
   return (
     <div className=" text-white text-right pt-2 w-fit">
       <h2 className="text-2xl font-bold">Create an account</h2>
