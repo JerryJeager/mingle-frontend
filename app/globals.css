@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.auth-input{
+  @apply outline-none bg-transparent caret-yellow border border-[#282828] focus:bg-black lg:focus:bg-transparent w-[310px] text-yellow rounded-md;
+}
+
+
+input[type="password"]::-webkit-textfield-decoration-container {
+  display: none;
+}
+
+/* Hide the default password toggle button for Edge */
+input[type="password"]::-ms-reveal {
+  display: none;
+}

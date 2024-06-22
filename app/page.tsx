@@ -20,7 +20,7 @@ export default function Home() {
               ones or working on a team project, Mingle provides a secure and
               intuitive space for all your conversations.
             </p>
-            <Link href={"/auth"}>
+            <Link href={"/auth/signup"}>
               <button className="py-2 px-4 rounded-md bg-yellow text-white font-bold">
                 Get Started
               </button>
