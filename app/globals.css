@@ -16,3 +16,7 @@ input[type="password"]::-webkit-textfield-decoration-container {
 input[type="password"]::-ms-reveal {
   display: none;
 }
+
+.password{
+  @apply cursor-pointer absolute text-yellow bottom-3 right-2 
+}
