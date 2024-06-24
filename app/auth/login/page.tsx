@@ -11,7 +11,7 @@ import { FcGoogle } from "react-icons/fc";
 const Login = () => {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
   const GoogleAuth = process.env.NEXT_PUBLIC_GOOGLE_LOGIN_URL;
-  const baseUrl = "https://mingle.onrender.com/api/v1";
+  const baseUrl = "https://mingle-v1.onrender.com/api/v1";
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
