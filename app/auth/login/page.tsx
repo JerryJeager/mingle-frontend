@@ -1,4 +1,5 @@
 "use client";
+import { storeCookie } from "@/app/actions/storeCookie";
 import Spinner from "@/app/components/ui/Spinner";
 import { AuthData } from "@/app/types/formData";
 import axios from "axios";
@@ -38,6 +39,8 @@ const Login = () => {
       });
 
       if (req.status == 201) {
+        await storeCookie("user_id", req.data.id)
+        await storeCookie("access_token", req.data.token)
         router.push("/dashboard");
       }
     } catch {
