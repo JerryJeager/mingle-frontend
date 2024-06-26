@@ -2,6 +2,7 @@
 import { storeCookie } from "@/app/actions/storeCookie";
 import Spinner from "@/app/components/ui/Spinner";
 import { AuthData } from "@/app/types/formData";
+import { getBaseUrl } from "@/app/utils/getBaseUrl";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -12,7 +13,6 @@ import { FcGoogle } from "react-icons/fc";
 const Login = () => {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
   const GoogleAuth = process.env.NEXT_PUBLIC_GOOGLE_LOGIN_URL;
-  const baseUrl = "https://mingle-v1.onrender.com/api/v1";
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
@@ -33,7 +33,7 @@ const Login = () => {
     setIsLoading(true);
     setError("");
     try {
-      let req = await axios.post(`${baseUrl}/user/login`, {
+      let req = await axios.post(`${getBaseUrl()}/user/login`, {
         email: formData.email,
         password: formData.password,
       });
