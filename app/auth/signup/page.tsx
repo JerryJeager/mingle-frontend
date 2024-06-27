@@ -1,7 +1,7 @@
 "use client";
 import Spinner from "@/app/components/ui/Spinner";
 import { AuthData } from "@/app/types/formData";
-import { getBaseUrl } from "@/app/utils/getBaseUrl";
+import { getBaseUrl, getGoogleAuthUrl } from "@/app/utils/getBaseUrl";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -11,7 +11,7 @@ import { FcGoogle } from "react-icons/fc";
 
 const Signup = () => {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
-  const GoogleAuth = process.env.NEXT_PUBLIC_GOOGLE_LOGIN_URL;
+  const GoogleAuth = getGoogleAuthUrl()
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();

@@ -3,4 +3,5 @@ export type User = {
     email: string
     username: string
     auth_type: "normal" | "google"
+    picture: string
 }

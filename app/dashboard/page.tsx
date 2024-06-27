@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { User } from "../types/user";
 import { getBaseUrl } from "../utils/getBaseUrl";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
+import Image from "next/image"
 
 const Dashboard = () => {
   const router = useRouter();
@@ -42,6 +43,7 @@ const Dashboard = () => {
           <p>{user.id}</p>
           <p>{user.username}</p>
           <p>{user.auth_type}</p>
+          <Image alt="profile photo" width={150} height={150} className="rounded-full" src={user.picture} />
         </>
       )}
     </>
