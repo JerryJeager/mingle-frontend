@@ -4,7 +4,7 @@ import { cookies } from "next/headers"
 
 
 export const storeCookie = async (name: string, value: string) => {
-    cookies().set(name, value)
+    cookies().set(name, value, {maxAge: 86400})
 }
 
 export const getCookie = async (name: string) => {
