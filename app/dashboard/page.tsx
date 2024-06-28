@@ -39,11 +39,11 @@ const Dashboard = () => {
       <div>Dashboard</div>
       {user && (
         <>
-          <p>{user.email}</p>
-          <p>{user.id}</p>
-          <p>{user.username}</p>
-          <p>{user.auth_type}</p>
-          <Image alt="profile photo" width={150} height={150} className="rounded-full" src={user.picture} />
+          <p>Email: {user.email}</p>
+          <p>Id: {user.id}</p>
+          <p>Username: {user.username}</p>
+          <p>Auth Type: {user.auth_type}</p>
+          {user.picture && <Image alt="profile photo" width={150} height={150} className="rounded-full" src={user.picture} />}
         </>
       )}
     </>
