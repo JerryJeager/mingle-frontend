@@ -1,5 +1,5 @@
 "use client";
-import { storeCookie } from "@/app/actions/storeCookie";
+import { getCookie, storeCookie } from "@/app/actions/storeCookie";
 import Spinner from "@/app/components/ui/Spinner";
 import { AuthData } from "@/app/types/formData";
 import { getBaseUrl, getGoogleAuthUrl } from "@/app/utils/getBaseUrl";
@@ -19,7 +19,7 @@ const GoogleAuthBtn = ({ googleAuth }: { googleAuth: string }) => {
     const saveCookie = async (id: string, token: string) => {
       await storeCookie("mingle_user_id", id);
       await storeCookie("mingle_token", token);
-      router.replace("/dashboard");
+      router.replace("/chat");
     };
 
     if (userId && token) {
@@ -70,7 +70,7 @@ const Login = () => {
       if (req.status == 201) {
         await storeCookie("mingle_user_id", req.data.id);
         await storeCookie("mingle_token", req.data.token);
-        router.push("/dashboard");
+        router.push("/chat");
       }
     } catch {
       setError("invalid email or password");
@@ -78,6 +78,16 @@ const Login = () => {
       setIsLoading(false);
     }
   };
+  useEffect(() => {
+    const checkLoginCredentials = async () => {
+      let userId = await getCookie("mingle_user_id");
+      let token = await getCookie("mingle_token");
+      if (userId && token) {
+        router.push("/chat");
+      }
+    };
+    checkLoginCredentials();
+  }, []);
   return (
     <div className=" text-white text-right pt-2 w-fit">
       <h2 className="text-2xl font-bold">Welcome back, Login</h2>

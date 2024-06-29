@@ -11,6 +11,11 @@ const config: Config = {
       colors: {
         "yellow": "#fb8500",
         "dark1": "#1e1e1e",
+        "dark2": "#1e1f22",
+        "chatBg": "#2b2d31",
+        "chatBg2": "#494949",
+        "offline": "#f7c213",
+        "online": "#62c554",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
