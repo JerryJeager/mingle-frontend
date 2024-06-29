@@ -15,7 +15,7 @@ const Dashboard = () => {
     let accessToken: RequestCookie | undefined;
     let res: AxiosResponse<any, any> | null = null;
     try {
-      accessToken = await getCookie("access_token");
+      accessToken = await getCookie("mingle_token");
       if (!accessToken) {
         router.push("/auth/login");
       }

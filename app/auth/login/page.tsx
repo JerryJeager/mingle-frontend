@@ -5,8 +5,8 @@ import { AuthData } from "@/app/types/formData";
 import { getBaseUrl, getGoogleAuthUrl } from "@/app/utils/getBaseUrl";
 import axios from "axios";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { FormEvent, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
@@ -15,6 +15,7 @@ const Login = () => {
   const GoogleAuth = getGoogleAuthUrl()
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const searchParams = useSearchParams()
   const router = useRouter();
   const [formData, setFormData] = useState<AuthData>({
     email: "",
@@ -39,8 +40,8 @@ const Login = () => {
       });
 
       if (req.status == 201) {
-        await storeCookie("user_id", req.data.id)
-        await storeCookie("access_token", req.data.token)
+        await storeCookie("mingle_user_id", req.data.id)
+        await storeCookie("mingle_token", req.data.token)
         router.push("/dashboard");
       }
     } catch {
@@ -49,6 +50,19 @@ const Login = () => {
       setIsLoading(false);
     }
   };
+  useEffect(() => {
+    let userId  = searchParams.get("mingle_user_id")
+    let token = searchParams.get("mingle_token")
+    const saveCookie = async (id: string, token: string) => {
+      await storeCookie("mingle_user_id", id)
+      await storeCookie("mingle_token", token)
+      router.push("/dashboard")
+    }
+
+    if (userId && token){
+      saveCookie(userId, token)
+    }
+  }, [searchParams])
   return (
     <div className=" text-white text-right pt-2 w-fit">
       <h2 className="text-2xl font-bold">Welcome back, Login</h2>
