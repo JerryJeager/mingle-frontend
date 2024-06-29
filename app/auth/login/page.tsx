@@ -19,7 +19,7 @@ const GoogleAuthBtn = ({ googleAuth }: { googleAuth: string }) => {
     const saveCookie = async (id: string, token: string) => {
       await storeCookie("mingle_user_id", id);
       await storeCookie("mingle_token", token);
-      router.push("/dashboard");
+      router.replace("/dashboard");
     };
 
     if (userId && token) {
