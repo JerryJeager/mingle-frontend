@@ -10,15 +10,21 @@ import { useEffect, useState } from "react";
 import { IoSettingsSharp } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import Image from "next/image";
+import LogoutModal from "./LogoutModal";
 
 const Profile = () => {
   const [user, setUser] = useState<null | User>(null);
+  const [isModalActive, setIsModalActive] = useState(false)
+  const [isLogoutLoading, setIsLogoutLoading] = useState(false)
   let router = useRouter();
   const handleLogout = async () => {
+    setIsLogoutLoading(true)
     await deleteCookie("mingle_token")
     await deleteCookie("mingle_user_id")
+    setIsLogoutLoading(false)
     router.push("/auth/login")
   }
+  let modalProps = {handleLogout, setIsModalActive, isModalActive, isLogoutLoading}
   const getUser = async () => {
     let accessToken: RequestCookie | undefined;
     let res: AxiosResponse<any, any> | null = null;
@@ -67,12 +73,13 @@ const Profile = () => {
           </div>
         </div>
         <div className="flex gap-6 text-white">
-          <button onClick={handleLogout}>
+          <button onClick={() => setIsModalActive(prev => !prev)}>
             <MdOutlineLogout />
           </button>
           <IoSettingsSharp />
         </div>
       </section>
+      <LogoutModal {...modalProps} />
     </>
   );
 };
