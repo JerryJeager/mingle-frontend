@@ -5,7 +5,7 @@ import ChatHeader from "./ChatHeader";
 
 const SideBar = () => {
   return (
-    <div className="flex flex-col justify-between h-full">
+    <div className="fixed top-0 left-0 p-4 sm:p-0 sm:static w-full flex flex-col justify-between h-full">
       <div>
         <ChatHeader />
         <SearchBar />

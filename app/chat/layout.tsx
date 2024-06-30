@@ -12,11 +12,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <section className="bg-dark1 flex gap-8 h-screen p-4 md:p-10">
-      <div className="w-full md:w-[30%] h-full">
+    <section className="bg-dark1 flex gap-8 h-screen p-4 sm:p-10">
+      <div className="w-full sm:w-[30%] h-full">
         <SideBar />
       </div>
-      <div className="hidden lg:block md:w-[70%]">{children}</div>
+      <div className="h-full sm:block sm:w-[70%]">{children}</div>
     </section>
   );
 }

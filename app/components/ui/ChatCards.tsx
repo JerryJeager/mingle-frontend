@@ -1,10 +1,11 @@
 import { ChatPreview } from "@/app/types/chat";
+import Link from "next/link";
 import { CgProfile } from "react-icons/cg"
 import { HiDotsVertical } from "react-icons/hi";
 
 const ChatCards = ({chat}: {chat: ChatPreview}) => {
   return (
-    <div className="cursor-pointer hover:bg-[#121212] rounded-lg w-full flex justify-between items-center p-2">
+    <Link href={`/chat/${chat.id}`} className="cursor-pointer hover:bg-[#121212] rounded-lg w-full flex justify-between items-center p-2">
         <div className="flex gap-2">
             <div>
                 <CgProfile className="text-2xl rounded-full text-white" />
@@ -17,7 +18,7 @@ const ChatCards = ({chat}: {chat: ChatPreview}) => {
         <div>
             <HiDotsVertical className="text-white" />
         </div>
-    </div>
+    </Link>
   )
 }
 

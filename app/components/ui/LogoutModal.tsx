@@ -17,7 +17,7 @@ const LogoutModal = ({
   return (
     <>
       {isModalActive && (
-        <div className="w-full h-full bg-[#121212] bg-opacity-10 backdrop-blur-sm absolute flex justify-center items-center top-0 right-0">
+        <div className="w-full h-full bg-[#333333] bg-opacity-10 shadow-lg backdrop-blur-sm absolute flex justify-center items-center top-0 right-0">
           <div className="bg-[#121212] p-8 z-10  rounded-md shadow-md text-white">
             <p>Are you sure you want to logout?</p>
             <div className="mt-4 flex justify-center items-center w-full gap-4">
