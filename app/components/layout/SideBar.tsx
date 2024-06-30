@@ -1,3 +1,4 @@
+import ChatPreview from "../ui/ChatPreview";
 import Profile from "../ui/Profile";
 import SearchBar from "../ui/SearchBar";
 import ChatHeader from "./ChatHeader";
@@ -8,6 +9,7 @@ const SideBar = () => {
       <div>
         <ChatHeader />
         <SearchBar />
+        <ChatPreview />
       </div>
       <div>
         <Profile />
