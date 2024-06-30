@@ -1,5 +1,5 @@
 import Image from "next/image";
-import composure from "../../public/images/composure.jpg"
+import composure from "../../public/images/composure.png"
 const Dashboard = () => {
   return (
     <div className="bg-[#121212] rounded-r-xl hidden sm:flex justify-center items-center w-full  h-full text-white">
